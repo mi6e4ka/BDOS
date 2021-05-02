@@ -1,0 +1,89 @@
+<link rel='stylesheet' href='styles/blockscreen.css'>
+<link rel='stylesheet' href='styles/windows.css'>
+<link rel='stylesheet' href='styles/mainscreen.css'>
+<link rel='stylesheet' href='styles/main.css'>
+<html>
+	<center><div id='bar'>100% <img src='assets/battary.png' width='2%'> <span class='hours'></span>:<span class='minuts'></span></div></center>
+	<div id='block-screen' onclick='unlock()'>
+	&nbsp;
+		<center>
+			<div class='clock'>
+				<span class='clock-text'><span class='hours'>-</span></span>
+				<span id='blink' class='clock-text'>:</span>
+				<span class='clock-text'><span class='minuts'>-</span></span>
+				<span class='clock-sec' id='seconds'>-</span>
+				<br>
+				<span class='clock-description'><span id='weekday'>...</span>, <span id='monthday'>...</span></span>
+			</div>
+			<div class='tap-to-unlock'>
+				<img src='assets/arrows.png' width='5%' />
+				<br>
+				Tap to unlock
+			</div>
+		</center>
+	</div>
+	<div id='main-screen'>
+		<span class='icon' onclick='openWindow("console")'>
+			<div class='icon-img' style='background-image: url(assets/icons/console.png)'></div>
+			<span class='icon-text'>Терминал</span>
+		</span>
+		<br>
+		<span class='icon' onclick='openWindow("python")'>
+			<div class='icon-img' style='background-image: url(assets/icons/python.png)'></div>
+			<span class='icon-text'>Python</span>
+		</span>
+	</div>
+</html>
+<div class='window' id='console'>
+	<div class='header' id="consoleheader">
+		<div class='window-img' style='background-image: url(assets/icons/console.png)'></div>
+		&nbsp;&nbsp;&nbsp;Терминал&nbsp;
+		<div onmousedown="closeWindow('console')" onmouseout="this.style.background='white'" onmouseover="this.style.background='red'" class='close-window'>&nbsp;✖&nbsp;</div>
+	</div>
+	<div style='position: absolute; background: black; height: 400px; width: 800px; overflow-x:hidden; color: white'>
+		Web Os [Version alpha 02052021.1]<br>
+		(c) Михаил Литвинов (mi6e4ka). Все права защищены.<br>
+		<br>
+		/ ><br>
+	</div>
+</div>
+<div class='window' id='python'>
+	<div class='header' id="pythonheader"'>
+		<div class='window-img' style='background-image: url(assets/icons/python.png)'></div>
+		&nbsp;&nbsp;&nbsp;Python JS IDE 1.0&nbsp;
+		<div onmousedown="closeWindow('python')" onmouseout="this.style.background='white'" onmouseover="this.style.background='red'" class='close-window'>&nbsp;✖&nbsp;</div>
+	</div>
+	<div class='winbody' style='position: absolute; background: white; height: 400px; width: 800px; z-index: 9;'>
+		<br>
+		<div onclick="startCode(document.getElementById('codeenter'))" class='icon-img' style='display: inline-block;background-image: url(assets/start.png)'></div>
+		&nbsp;
+		<!--<div class='icon-img' style='display: inline-block; background-image: url(assets/stop.png)'></div>-->
+		<br>
+		<textarea id='codeenter' style='resize: none' rows=11 cols=110></textarea>
+		<textarea id='coderesult' style='resize: none' readonly rows=6 cols=110>Python JS > </textarea>
+		By mi6e4ka, 2021
+	</div>
+</div>
+<script src='scripts/windows.js'></script>
+<script src='scripts/clock.js'></script>
+<script>
+function unlock() {
+	document.getElementById('block-screen').classList.toggle("active");
+	document.getElementById('main-screen').classList.toggle("active");
+}
+
+function startCode(enter, result){
+	enter = enter.value
+	enter = enter.replace(/'/gi, '"');
+	enter = enter.replace(/;/gi, '');
+	enter = enter.split('\n');
+	for (i in enter) {
+		if (enter[i].split('"')[0] == 'print(' && enter[i].split('"')[2] == ')'){
+			document.getElementById('coderesult').value += enter[i].split('"')[1] + '\n';
+		} else {
+			document.getElementById('coderesult').value += 'Ошибка, компилятор может выполнить только функцию print() (только строки), либо в коде есть ошибка!\n'
+		}
+	}
+	document.getElementById('coderesult').value += 'Python JS > '
+}
+</script>

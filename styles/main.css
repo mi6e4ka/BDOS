@@ -1,0 +1,18 @@
+@font-face {
+	font-family: Clock;
+	src: url(../assets/clock.ttf);
+}
+#bar {
+	margin-top: 0.5%;
+	padding: 0.2%;
+	font-size: 120%;
+	font-family: Clock, 'Arciform';
+	color: white;
+}
+html {
+	user-select: none;
+	background-image: url(../assets/background.jpg);
+	background-size: cover; 
+	height: auto;
+	overflow:  hidden;
+}
