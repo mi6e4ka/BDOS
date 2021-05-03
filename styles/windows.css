@@ -28,6 +28,7 @@
 	border: 1px solid; 
 	background: black;
 	display: none;
+	z-index: 1;
 }
 #header-text {
 	position: absolute;
