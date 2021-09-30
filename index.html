@@ -2,17 +2,23 @@
 <link rel='stylesheet' href='styles/windows.css'>
 <link rel='stylesheet' href='styles/mainscreen.css'>
 <link rel='stylesheet' href='styles/main.css'>
-<script>var build_version = 'alpha 03052021.1';</script>
+<link rel='stylesheet' href='styles/bar.css'>
+<script>var build_version = 'v0.1-beta';</script>
 <title>WebOS</title>
 <script>document.title += ' '+build_version;</script>
-<html>
+<html oncontextmenu="return false">
 	<div id='bar'>
-		<span style='position: absolute; z-index: 1'>ver. <script>document.write(build_version);</script></span>
+		<!--<span style='position: absolute; z-index: 1'>ver. <script>document.write(build_version);</script></span>-->
+		<div onclick='openMenu()' id='menuIcon'></div>
+		
+		<div id='barMenu'>
+		</div>
+		
+		<!--
 		<center>
-			100% 
-			<img src='assets/battary.png' width='2%'>
 			<span class='hours'></span>:<span class='minuts'></span>
 		</center>
+		-->
 	</div>
 	<div id='block-screen' onclick='unlock()'>
 	&nbsp;
@@ -32,7 +38,8 @@
 			</div>
 		</center>
 	</div>
-	<div id='main-screen'>
+	<div id='shortcuts'>
+		<!--
 		<span class='icon' onclick='openWindow("console")'>
 			<div class='icon-img' style='background-image: url(assets/icons/console.png)'></div>
 			<span class='icon-text'>Терминал</span>
@@ -42,15 +49,18 @@
 			<div class='icon-img' style='background-image: url(assets/icons/python.png)'></div>
 			<span class='icon-text'>Python</span>
 		</span>
+		<br>
+		-->
 	</div>
-</html>
+<div id='windows'></div>
+<!--
 <div class='window' id='console'>
 	<div class='header' id="consoleheader">
 		<div class='window-img' style='background-image: url(assets/icons/console.png)'></div>
 		&nbsp;&nbsp;&nbsp;Терминал&nbsp;
 		<div onmousedown="closeWindow('console')" onmouseout="this.style.background='white'" onmouseover="this.style.background='red'" class='close-window'>&nbsp;✖&nbsp;</div>
 	</div>
-	<div style='position: absolute; background: black; height: 400px; width: 800px; overflow-x:hidden; color: white'>
+	<div class='winbody' style='position: absolute; background: black; height: 400px; width: 800px; overflow-x:hidden; color: white'>
 		Web Os [Version <script>document.write(build_version);</script>]<br>
 		(c) Михаил Литвинов (mi6e4ka). Все права защищены.<br>
 		<br>
@@ -67,119 +77,24 @@
 		<br>
 		<div onclick="startCode(document.getElementById('codeenter'))" class='icon-img' style='display: inline-block;background-image: url(assets/start.png)'></div>
 		&nbsp;
-		<!--<div class='icon-img' style='display: inline-block; background-image: url(assets/stop.png)'></div>-->
+		<!--<div class='icon-img' style='display: inline-block; background-image: url(assets/stop.png)'></div>
 		<br>
 		<textarea id='codeenter' style='tab-size: 4;resize: none; width: 100%; height: 45%'></textarea>
 		<textarea id='coderesult' style='resize: none; width: 100%; height: 23%' readonly>Python JS > </textarea>
 		By mi6e4ka, 2021
 	</div>
 </div>
+-->
+</html>
+<script src='scripts/localforage.js'></script>
+<script src='scripts/jxe.js'></script>
 <script src='scripts/windows.js'></script>
 <script src='scripts/clock.js'></script>
+<script src='scripts/pyJS.js'></script>
 <script>
 function unlock() {
 	document.getElementById('block-screen').classList.toggle("active");
-	document.getElementById('main-screen').classList.toggle("active");
+	document.getElementById('shortcuts').classList.toggle("active");
+	document.getElementById('bar').classList.toggle("active");
 }
-
-function startCode(enter, result){
-	function output(val){
-		document.getElementById('coderesult').value += val.toString() + '\n';
-	}
-	enter = enter.value
-	enter = enter.replace(/print/gi, 'output');
-	enter = enter.replace(/while /gi, 'while (');
-	enter = enter.replace(/if /gi, 'if (');
-	enter = enter.replace(/else:/gi, 'else{');
-	enter = enter.replace(/:/gi, '){');
-	enter = enter.replace(/and/gi, '&&');
-	enter = enter.replace(/or/gi, '||');
-	enter += '\n';
-	tab = false;
-	enter_s = enter.split('\n');
-	for (i in enter_s){
-		if (enter_s[i].indexOf('    ') != -1 || enter_s[i].indexOf('\t') != -1){
-			tab = true;
-		}
-		if (tab && (enter_s[i].indexOf('    ') == -1 || enter_s[i].indexOf('\t') == -1)){ 
-			tab = false;
-			enter_s[i] = '}' + enter_s[i];
-		}
-	}
-	enter = '';
-	for (i in enter_s){
-		enter += enter_s[i] + '\n';
-	}
-	console.log(enter);
-	eval(enter);
-	document.getElementById('coderesult').value += '\nPython JS > '
-	document.getElementById('coderesult').scrollTop = document.getElementById('coderesult').scrollHeight - document.getElementById('coderesult').clientHeight;
-}
-
-document.addEventListener( 'keydown', function( event ){
-
-	if( 'TEXTAREA' !== event.target.tagName )
-		return
-
-	// not tab
-	if( event.code !== 'Tab' )
-		return
-
-	event.preventDefault()
-
-	// Opera, FireFox, Chrome
-	let textarea     = event.target
-	let selStart     = textarea.selectionStart
-	let selEnd       = textarea.selectionEnd
-	let before       = textarea.value.substring( 0, selStart )
-	let slection     = textarea.value.substring( selStart, selEnd )
-	let after        = textarea.value.substr( selEnd )
-	let slection_new = ''
-
-	// remove TAB indent
-	if( event.shiftKey ){
-
-		// fix selection
-		let selectBefore = before.substr( before.lastIndexOf( '\n' ) + 1 )
-		let isfix = /^\s/.test( selectBefore )
-		if( isfix ){
-			let fixed_selStart = selStart - selectBefore.length
-			before   = textarea.value.substring( 0, fixed_selStart )
-			slection = textarea.value.substring( fixed_selStart, selEnd )
-		}
-
-		let once = false 
-		slection_new = slection.replace( /^(\t|[ ]{2,4})/gm, ( mm )=>{
-
-			if( isfix && ! once ){
-				once = true // do it once - for first line only
-				selStart -= mm.length
-			}
-
-			selEnd -= mm.length
-			return ''
-		})
-	}
-	// add TAB indent
-	else {
-		selStart++
-
-		// has selection
-		if( slection.trim() ){
-			slection_new = slection.replace( /^/gm, ()=>{
-				selEnd++
-				return '\t'
-			})
-		}
-		else {
-			slection_new = '\t'
-			selEnd++
-		}
-	}
-
-	textarea.value = before + slection_new + after
-
-	// cursor
-	textarea.setSelectionRange( selStart, selEnd )
-});
 </script>

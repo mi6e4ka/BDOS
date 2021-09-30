@@ -3,14 +3,20 @@
 	width: 80;
 	height: 80;
 }
-#main-screen {
+#shortcuts {
 	display: none;
 }
-#main-screen.active {
+#shortcuts.active {
 	display: block;
 	position: absolute;
-	top: 2%;
-	left: 0;
+	top: 70px;
+	left: 6px;
+}
+#bar {
+	display: none;
+}
+#bar.active {
+	display: block;
 }
 .icon {
 	margin: 2%;
