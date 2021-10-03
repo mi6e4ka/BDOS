@@ -13,7 +13,7 @@
 }
 .tap-to-unlock {
 	margin-top: 200px;
-	animation: jump 2s linear infinite;
+	animation: jump 3s cubic-bezier(.46,.03,.52,.96) infinite;
 }
 @keyframes jump {
 	0% {transform:translateY(0px);}

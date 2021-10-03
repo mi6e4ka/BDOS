@@ -1,0 +1,12 @@
+createApp('explorer', 'Проводник');
+createWindow('explorer', 'Проводник');
+
+localforage.getItem('apps', function (err, val) {
+	val.forEach((value, key, map) => {
+		insertWindow('explorer',`<a href=# onclick='removeFile("${key}"); filesUpdate()'>${key}<br>`);
+	});
+});
+
+createApp('fileLoader', 'Загрузчик файлов');
+createWindow('fileLoader', 'Выбирите файл для загрузки');
+insertWindow('fileLoader','<input type="file" onchange="loadFile(this)">');

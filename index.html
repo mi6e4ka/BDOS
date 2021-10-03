@@ -26,7 +26,7 @@
 	</div>
 	<script>loadInfo('bar loaded');</script>
 	<script>loadInfo('loading block screen');</script>
-	<div id='block-screen' onclick='unlock()'>
+	<div id='block-screen' onclick='block()'>
 	&nbsp;
 		<center>
 			<div class='clock'>
@@ -47,6 +47,7 @@
 	<script>loadInfo('block screen loaded');</script>
 	<script>loadInfo('loading shorcut icons');</script>
 	<div id='shortcuts'>
+	<div id='externalApps'></div>
 	</div>
 	<script>loadInfo('shortcuts icons loaded');</script>
 <script>loadInfo('loading windows');</script>
@@ -88,16 +89,20 @@
 <script>loadInfo('loading scripts');</script>
 <script>loadInfo('loading localforage');</script>
 <script src='scripts/localforage.js'></script>
+<script>loadInfo('loading explorer');</script>
+<script src='scripts/explorer.js'></script>
 <script>loadInfo('loading jxe');</script>
 <script src='scripts/jxe.js'></script>
 <script>loadInfo('loading windows');</script>
 <script src='scripts/windows.js'></script>
 <script>loadInfo('loading clock');</script>
 <script src='scripts/clock.js'></script>
+<script>loadInfo('loading core');</script>
+<script src='scripts/core.js'></script>
 <script>loadInfo('scripts loaded');</script>
 <!--<script src='scripts/pyJS.js'></script>-->
 <script>
-function unlock() {
+function block() {
 	document.getElementById('block-screen').classList.toggle("active");
 	document.getElementById('shortcuts').classList.toggle("active");
 	document.getElementById('bar').classList.toggle("active");

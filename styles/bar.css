@@ -1,11 +1,11 @@
 #barMenu {
-	position: absolute; 
-	top: 60px; 
-	background-color: #000000; 
-	width: 200px; 
-	height: 300px; 
-	padding: 10px; 
-	overflow: auto; 
+	position: absolute;
+	top: 60px;
+	background-color: #000000;
+	width: 200px;
+	height: 300px;
+	padding: 10px;
+	overflow: auto;
 	white-space: nowrap; 
 	border-radius: 5px;
 	display: none;
@@ -14,10 +14,10 @@
 	display: block;
 }
 #bar {
-	background-color: #a6a3c44f; 
-	z-index: 10; 
-	position: absolute; 
-	width: 1895px; 
+	background-color: #a6a3c44f;
+	z-index: 10;
+	position: absolute;
+	width: 1895px;
 	height: 45px;
 	border-radius: 5px;
 }

@@ -1,0 +1,3 @@
+createApp('jxeInstaller', 'Установщик пакетов');
+createWindow('jxeInstaller','Выбирите jxe файл для устоновки');
+insertWindow('jxeInstaller','<input type="file" onchange="installAppFile(this)" accept=".jxe">');
