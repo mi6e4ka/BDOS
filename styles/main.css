@@ -3,16 +3,18 @@
 	src: url(../assets/clock.ttf);
 }
 #bar {
-	margin-top: 0.5%;
-	padding: 0.2%;
-	font-size: 120%;
+	margin-top: 2px;
+	padding: 2px;
+	font-size: 20px;
 	font-family: Clock, 'Arciform';
 	color: white;
 }
 html {
 	user-select: none;
-	background-image: url(../assets/background.jpg);
-	background-size: cover; 
-	height: auto;
-	overflow:  hidden;
+	background-image: url(../assets/background.png);
+	background-repeat: no-repeat;
+	background-size: 2000px;
+	height: 1080px;
+	width: 1920px;
+	overflow: hidden;
 }

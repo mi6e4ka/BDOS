@@ -1,33 +1,33 @@
 .clock {
-	margin-top: 23%; 
+	margin-top: 400px;
 }
 #block-screen {
 	font-family: Clock, 'Arciform';
 	color: white;
-	transform: translateY(0%);
+	transform: translateY(0px);
 	transition: transform .5s;
 }
 #block-screen.active {
-	transform: translateY(-200%);
-	transition: transform .5s;
+	transform: translateY(-1080px);
+	transition: transform .4s;
 }
 .tap-to-unlock {
-	margin-top: 10%;
+	margin-top: 200px;
 	animation: jump 2s linear infinite;
 }
 @keyframes jump {
-	0% {transform:translateY(0%);}
-	50% {transform:translateY(-10%);}
-	100% {transform:translateY(0%);}
+	0% {transform:translateY(0px);}
+	50% {transform:translateY(-30px);}
+	100% {transform:translateY(0px);}
 }
 .clock-text {
-	font-size: 700%;
+	font-size: 150px;
 }
 .clock-sec {
-	font-size: 200%;
+	font-size: 40px;
 }
 .clock-description {
-	font-size: 130%;
+	font-size: 25px;
 }
 #blink {
   animation: blink 1s linear infinite;

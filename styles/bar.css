@@ -1,0 +1,43 @@
+#barMenu {
+	position: absolute; 
+	top: 60px; 
+	background-color: #000000; 
+	width: 200px; 
+	height: 300px; 
+	padding: 10px; 
+	overflow: auto; 
+	white-space: nowrap; 
+	border-radius: 5px;
+	display: none;
+}
+#barMenu.active {
+	display: block;
+}
+#bar {
+	background-color: #a6a3c44f; 
+	z-index: 10; 
+	position: absolute; 
+	width: 1895px; 
+	height: 45px;
+	border-radius: 5px;
+}
+.menuElement {
+	border: 2px solid gray; 
+	border-radius: 5px; 
+	padding: 2px;
+}
+#menuIcon {
+	width: 40px; 
+	height: 40px; 
+	display: inline-block; 
+	background-image: url(../assets/logo.png);
+	background-size: cover;
+	margin: 2px;
+}
+.minIcon {
+	width: 35px; 
+	height: 35px; 
+	display: inline-block; 
+	background-size: cover;
+	margin-bottom: 5px;
+}

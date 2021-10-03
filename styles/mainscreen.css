@@ -1,20 +1,27 @@
 .icon-img {
 	background-size: cover; 
-	width: 80;
-	height: 80;
+	width: 80px;
+	height: 80px;
 }
-#main-screen {
+#shortcuts {
 	display: none;
 }
-#main-screen.active {
+#shortcuts.active {
 	display: block;
 	position: absolute;
-	top: 2%;
-	left: 0;
+	top: 70px;
+	left: 6px;
+}
+#bar {
+	display: none;
+}
+#bar.active {
+	display: block;
 }
 .icon {
-	margin: 2%;
-	font-size: 120%;
+	margin: 2px;
+	width: 40px;
+	font-size: 20px;
 	font-family: Clock, 'Arciform';
 	color: white;
 	display: block;
