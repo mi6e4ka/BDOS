@@ -1,3 +1,5 @@
+openWindows = new Map();
+openM = false;
 function dragWindow(elmnt) {
   var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
   console.log(document.getElementById(elmnt.id + "header"));
@@ -18,7 +20,6 @@ function dragWindow(elmnt) {
     pos3 = e.clientX;
     pos4 = e.clientY;
     document.onmouseup = closeDragElement;
-    // call a function whenever the cursor moves:
     document.onmousemove = elementDrag;
 	document.onmousemove = elementDrag;
   }
@@ -43,16 +44,42 @@ function dragWindow(elmnt) {
 }
 
 function closeWindow(window){
+	openWindows.delete(window);
 	document.getElementById(window).style.display='none';
+	updateBar();
 }
 
 function openWindow(window){
+	if (!openWindows.has(window)){
+		document.getElementById(window).style.top='';
+		document.getElementById(window).style.left='';
+	}
+	openWindows.set(window, 1);
 	document.getElementById(window).style.display='block';
 	dragWindow(document.getElementById(window));
-	document.getElementById(window).style.top='';
-	document.getElementById(window).style.left='';
+	updateBar();
 }
-
+function minimizWindow(window){
+	openWindows.set(window, 0);
+	document.getElementById(window).style.display='none';
+	updateBar();
+}
+function updateBar(){
+	mL = document.getElementById('minEl');
+	mL.innerHTML = '';
+	openWindows.forEach(function(item, i, arr){
+		op = 1;
+		if (item == 0){
+			op = 0.5;
+		}
+		mL.innerHTML += `<div class='minIcon' style='background-image: url(assets/icons/console.png);opacity: ${op}' onclick='openWindow("${i}")'></div>`;
+	});
+}
 function openMenu(){
 	document.getElementById('barMenu').classList.toggle("active");
 }
+window.addEventListener("mouseup", function(e){
+    if ( event.target.id != 'barMenu' && event.target.id != 'menuIcon' && document.getElementById('barMenu').classList.contains("active")) {
+		document.getElementById('barMenu').classList.remove("active");
+    };
+});

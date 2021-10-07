@@ -3,14 +3,18 @@
 <link rel='stylesheet' href='styles/mainscreen.css'>
 <link rel='stylesheet' href='styles/main.css'>
 <link rel='stylesheet' href='styles/bar.css'>
-<script>var build_version = 'v0.1-beta';</script>
+<script>var build_version = 'v0.2-beta';</script>
 <title>WebOS</title>
 <script>document.title += ' '+build_version;</script>
-<html oncontextmenu="return false">
+<html oncontextmenu="return false" style=''>
+<div id='loader' style='position: absolute; top: 0; left: 0; z-index: 200; background-color: black; width: 1920px; height: 1080px; color: white'>
+</div>
+<script src='scripts/load.js'></script>
+	<script>loadInfo('loading bar');</script>
 	<div id='bar'>
-		<!--<span style='position: absolute; z-index: 1'>ver. <script>document.write(build_version);</script></span>-->
 		<div onclick='openMenu()' id='menuIcon'></div>
-		
+		<div id='minEl' style='display: inline-block'>
+		</div>
 		<div id='barMenu'>
 		</div>
 		
@@ -20,7 +24,9 @@
 		</center>
 		-->
 	</div>
-	<div id='block-screen' onclick='unlock()'>
+	<script>loadInfo('bar loaded');</script>
+	<script>loadInfo('loading block screen');</script>
+	<div id='block-screen' onclick='block()'>
 	&nbsp;
 		<center>
 			<div class='clock'>
@@ -38,21 +44,15 @@
 			</div>
 		</center>
 	</div>
+	<script>loadInfo('block screen loaded');</script>
+	<script>loadInfo('loading shorcut icons');</script>
 	<div id='shortcuts'>
-		<!--
-		<span class='icon' onclick='openWindow("console")'>
-			<div class='icon-img' style='background-image: url(assets/icons/console.png)'></div>
-			<span class='icon-text'>Терминал</span>
-		</span>
-		<br>
-		<span class='icon' onclick='openWindow("python")'>
-			<div class='icon-img' style='background-image: url(assets/icons/python.png)'></div>
-			<span class='icon-text'>Python</span>
-		</span>
-		<br>
-		-->
+	<div id='externalApps'></div>
 	</div>
+	<script>loadInfo('shortcuts icons loaded');</script>
+<script>loadInfo('loading windows');</script>
 <div id='windows'></div>
+<script>loadInfo('windows loaded');</script>
 <!--
 <div class='window' id='console'>
 	<div class='header' id="consoleheader">
@@ -86,15 +86,26 @@
 </div>
 -->
 </html>
+<script>loadInfo('loading scripts');</script>
+<script>loadInfo('loading localforage');</script>
 <script src='scripts/localforage.js'></script>
+<script>loadInfo('loading explorer');</script>
+<script src='scripts/explorer.js'></script>
+<script>loadInfo('loading jxe');</script>
 <script src='scripts/jxe.js'></script>
+<script>loadInfo('loading windows');</script>
 <script src='scripts/windows.js'></script>
+<script>loadInfo('loading clock');</script>
 <script src='scripts/clock.js'></script>
-<script src='scripts/pyJS.js'></script>
+<script>loadInfo('loading core');</script>
+<script src='scripts/core.js'></script>
+<script>loadInfo('scripts loaded');</script>
+<!--<script src='scripts/pyJS.js'></script>-->
 <script>
-function unlock() {
+function block() {
 	document.getElementById('block-screen').classList.toggle("active");
 	document.getElementById('shortcuts').classList.toggle("active");
 	document.getElementById('bar').classList.toggle("active");
 }
 </script>
+<script>loadInfo('loading assets');</script>

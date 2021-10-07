@@ -1,4 +1,4 @@
-# webOS v0.1-beta
+# webOS v0.2-beta
 - Операционная система в браузере
 - Протестировать: https://mi6e4ka.github.io/webOS
 - Прогресс выполнение (канбан): https://trello.com/b/w5Jhii9q/webos

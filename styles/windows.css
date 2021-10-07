@@ -8,7 +8,7 @@
 }
 .header {
 	background: white; 
-	font-size: 150%; 
+	font-size: 23px; 
 	/*color: black;*/
 	border-right: 1px solid;
 	border-left: 1px solid; 
@@ -20,17 +20,27 @@
 .close-window {
 	display: inline-block; 
 	position: absolute;
-	left: 782px; 
+	left: 786px; 
+	top: 1px;
+	background: white;
+	border-top-right-radius: 5px;
+	width: 35px;
+	height: 35px;
+}
+.minimiz-window {
+	display: inline-block; 
+	position: absolute;
+	left: 751px; 
 	top: 1px;
 	background: white; 
-	font-size: 100%;
-	border-top-right-radius: 5px;
+	width: 35px;
+	height: 35px;
 }
 .window {
 	font-family: Clock, 'Arciform';
 	position: absolute;
-	top: 25%;
-	left: 25%;
+	top: 300px;
+	left: 560px;
 	display: none;
 	z-index: 1;
 }
@@ -48,4 +58,5 @@
 	border-bottom-left-radius: 5px;
 	border-bottom-right-radius: 5px;
 	padding: 10px;
+	overflow: auto;
 }
