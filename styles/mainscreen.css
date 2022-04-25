@@ -8,9 +8,10 @@
 }
 #shortcuts.active {
 	display: block;
-	position: absolute;
-	top: 70px;
-	left: 6px;
+	position: relative;
+	top: 60px;
+	left: 6px;margin: 10px 10px 0;
+
 }
 #bar {
 	display: none;

@@ -1,13 +1,14 @@
+<html>
 <link rel='stylesheet' href='styles/blockscreen.css'>
 <link rel='stylesheet' href='styles/windows.css'>
 <link rel='stylesheet' href='styles/mainscreen.css'>
 <link rel='stylesheet' href='styles/main.css'>
 <link rel='stylesheet' href='styles/bar.css'>
-<script>var build_version = 'v0.2-beta';</script>
-<title>WebOS</title>
+<script>var build_version = 'v0.3-beta';</script>
+<title>BDOS</title>
 <script>document.title += ' '+build_version;</script>
-<html oncontextmenu="return false" style=''>
-<div id='loader' style='position: absolute; top: 0; left: 0; z-index: 200; background-color: black; width: 1920px; height: 1080px; color: white'>
+<div id='osContainer' oncontextmenu="return false">
+<div id='loader' style='z-index: 200; background-color: black; width: 1920px; height: 1080px; color: white'>
 </div>
 <script src='scripts/load.js'></script>
 	<script>loadInfo('loading bar');</script>
@@ -17,12 +18,6 @@
 		</div>
 		<div id='barMenu'>
 		</div>
-		
-		<!--
-		<center>
-			<span class='hours'></span>:<span class='minuts'></span>
-		</center>
-		-->
 	</div>
 	<script>loadInfo('bar loaded');</script>
 	<script>loadInfo('loading block screen');</script>
@@ -54,6 +49,7 @@
 <div id='windows'></div>
 <script>loadInfo('windows loaded');</script>
 <!--
+Add in new version!
 <div class='window' id='console'>
 	<div class='header' id="consoleheader">
 		<div class='window-img' style='background-image: url(assets/icons/console.png)'></div>
@@ -61,31 +57,13 @@
 		<div onmousedown="closeWindow('console')" onmouseout="this.style.background='white'" onmouseover="this.style.background='red'" class='close-window'>&nbsp;✖&nbsp;</div>
 	</div>
 	<div class='winbody' style='position: absolute; background: black; height: 400px; width: 800px; overflow-x:hidden; color: white'>
-		Web Os [Version <script>document.write(build_version);</script>]<br>
+		BDOS [Version <script>document.write(build_version);</script>]<br>
 		(c) Михаил Литвинов (mi6e4ka). Все права защищены.<br>
 		<br>
 		/ ><br>
 	</div>
+</div>-->
 </div>
-<div class='window' id='python'>
-	<div class='header' id="pythonheader"'>
-		<div class='window-img' style='background-image: url(assets/icons/python.png)'></div>
-		&nbsp;&nbsp;&nbsp;Python JS IDE 1.1&nbsp;
-		<div onmousedown="closeWindow('python')" onmouseout="this.style.background='white'" onmouseover="this.style.background='red'" class='close-window'>&nbsp;✖&nbsp;</div>
-	</div>
-	<div class='winbody' style='position: absolute; background: white; height: 400px; width: 800px; z-index: 9;'>
-		<br>
-		<div onclick="startCode(document.getElementById('codeenter'))" class='icon-img' style='display: inline-block;background-image: url(assets/start.png)'></div>
-		&nbsp;
-		<!--<div class='icon-img' style='display: inline-block; background-image: url(assets/stop.png)'></div>
-		<br>
-		<textarea id='codeenter' style='tab-size: 4;resize: none; width: 100%; height: 45%'></textarea>
-		<textarea id='coderesult' style='resize: none; width: 100%; height: 23%' readonly>Python JS > </textarea>
-		By mi6e4ka, 2021
-	</div>
-</div>
--->
-</html>
 <script>loadInfo('loading scripts');</script>
 <script>loadInfo('loading localforage');</script>
 <script src='scripts/localforage.js'></script>
@@ -100,7 +78,6 @@
 <script>loadInfo('loading core');</script>
 <script src='scripts/core.js'></script>
 <script>loadInfo('scripts loaded');</script>
-<!--<script src='scripts/pyJS.js'></script>-->
 <script>
 function block() {
 	document.getElementById('block-screen').classList.toggle("active");
@@ -109,3 +86,4 @@ function block() {
 }
 </script>
 <script>loadInfo('loading assets');</script>
+</html>

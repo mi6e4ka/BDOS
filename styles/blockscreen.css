@@ -10,6 +10,7 @@
 #block-screen.active {
 	transform: translateY(-1080px);
 	transition: transform .4s;
+	display: none;
 }
 .tap-to-unlock {
 	margin-top: 200px;
