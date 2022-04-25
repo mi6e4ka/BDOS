@@ -20,7 +20,6 @@ function dragWindow(elmnt) {
     pos3 = e.clientX;
     pos4 = e.clientY;
     document.onmouseup = closeDragElement;
-    // call a function whenever the cursor moves:
     document.onmousemove = elementDrag;
 	document.onmousemove = elementDrag;
   }
@@ -79,9 +78,8 @@ function updateBar(){
 function openMenu(){
 	document.getElementById('barMenu').classList.toggle("active");
 }
-
-document.onmouseup = function(e){
+window.addEventListener("mouseup", function(e){
     if ( event.target.id != 'barMenu' && event.target.id != 'menuIcon' && document.getElementById('barMenu').classList.contains("active")) {
 		document.getElementById('barMenu').classList.remove("active");
     };
-};
+});

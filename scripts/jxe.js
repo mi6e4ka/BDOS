@@ -1,8 +1,8 @@
-function createWindow(appName, title, titleIcon='assets/icons/console.png', appColor='white'){
+function createWindow(appName, title, iconUrl='assets/icons/console.png', appColor='white'){
 	document.getElementById('windows').innerHTML+=`
 <div id='`+appName+`' class='window' style=''>
 	<div id='`+appName+`header' class='header'>
-		<div class='window-img' style='background-image: url(`+titleIcon+`)'></div>
+		<div class='window-img' style='background-image: url(`+iconUrl+`)'></div>
 		&nbsp;&nbsp;&nbsp;`+title+`&nbsp;
 		<div onmousedown="closeWindow('`+appName+`')" onmouseout="this.style.background='white'" onmouseover="this.style.background='red'" class='close-window'>&nbsp;✖&nbsp;</div>
 		<div onmousedown="minimizWindow('`+appName+`')" onmouseout="this.style.background='white'" onmouseover="this.style.background='#cacaca'" class='minimiz-window'>&nbsp;-&nbsp;</div>
@@ -51,13 +51,13 @@ function installAppFile(input){
 	let reader = new FileReader();
 	reader.readAsText(file);
 	reader.onload = function() {
-		installApp(reader.result, file.name);
+		installApp(reader.result);
 	};
 }
 
-function installApp(file, name) {
+function installApp(file) {
 	eval(file);
-	let path = '/apps/'+name;
+	let path = '/apps/'+appID+'.jxe';
 	addFile(path, file);
 	document.getElementById('barMenu').innerHTML += `<div id='${appID}link'><span class='menuElement' 
 	onclick='openWindow("${appID}")'>${path} -> ${appID}</span><br><br></div>`;
