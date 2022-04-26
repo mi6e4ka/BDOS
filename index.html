@@ -1,4 +1,4 @@
-<html>
+<html id='html'>
 <link rel='stylesheet' href='styles/blockscreen.css'>
 <link rel='stylesheet' href='styles/windows.css'>
 <link rel='stylesheet' href='styles/mainscreen.css'>
@@ -43,6 +43,11 @@
 	<script>loadInfo('block screen loaded');</script>
 	<script>loadInfo('loading shorcut icons');</script>
 	<div id='shortcuts'>
+		<span id='${appID}icon' class='icon' onclick='document.getElementById("html").requestFullscreen();'>
+			<div class='icon-img' style='background-image: url(assets/icons/console.png)'></div>
+			<span class='icon-text'>fullscreen.jxe</span>
+		<br>
+		</span>
 	<div id='externalApps'></div>
 	</div>
 	<script>loadInfo('shortcuts icons loaded');</script>
