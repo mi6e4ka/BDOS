@@ -1,40 +1,40 @@
 .window-img {
-	background-size: cover; 
+	background-size: cover;
 	margin: 5px; 
-	position: absolute; 
+	position: absolute;
 	width: 20px; 
 	height: 20px; 
 	display: inline-block;
 }
 .header {
-	background: white; 
-	font-size: 23px; 
-	/*color: black;*/
+	background: white;
+	font-size: 23px;
+	/*color: black;
 	border-right: 1px solid;
-	border-left: 1px solid; 
-	border-top: 1px solid; 
+	border-left: 1px solid;
+	border-top: 1px solid;
+	*/
 	width: 820px;
+	height: 100%;
 	border-top-left-radius: 5px;
 	border-top-right-radius: 5px;
 }
 .close-window {
-	display: inline-block; 
+	display: inline-block;
 	position: absolute;
-	left: 786px; 
-	top: 1px;
+	left: 785px;
 	background: white;
 	border-top-right-radius: 5px;
 	width: 35px;
-	height: 35px;
+	height: 100%;
 }
 .minimiz-window {
-	display: inline-block; 
+	display: inline-block;
 	position: absolute;
-	left: 751px; 
-	top: 1px;
-	background: white; 
+	left: 750px;
+	background: white;
 	width: 35px;
-	height: 35px;
+	height: 100%;
 }
 .window {
 	font-family: Clock, 'Arciform';
@@ -51,10 +51,12 @@
 .winbody {
 	height: 400px; 
 	width: 800px;
-	z-index: 9; 
-	border-left: 1px solid; 
-	border-bottom: 1px solid; 
+	z-index: 9;
+	/*
+	border-left: 1px solid;
+	border-bottom: 1px solid;
 	border-right: 1px solid;
+	*/
 	border-bottom-left-radius: 5px;
 	border-bottom-right-radius: 5px;
 	padding: 10px;

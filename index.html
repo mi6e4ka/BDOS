@@ -4,6 +4,7 @@
 <link rel='stylesheet' href='styles/mainscreen.css'>
 <link rel='stylesheet' href='styles/main.css'>
 <link rel='stylesheet' href='styles/bar.css'>
+<meta charset='utf-8'>
 <script>var build_version = 'v0.3-beta';</script>
 <title>BDOS</title>
 <script>document.title += ' '+build_version;</script>
@@ -48,21 +49,6 @@
 <script>loadInfo('loading windows');</script>
 <div id='windows'></div>
 <script>loadInfo('windows loaded');</script>
-<!--
-Add in new version!
-<div class='window' id='console'>
-	<div class='header' id="consoleheader">
-		<div class='window-img' style='background-image: url(assets/icons/console.png)'></div>
-		&nbsp;&nbsp;&nbsp;Терминал&nbsp;
-		<div onmousedown="closeWindow('console')" onmouseout="this.style.background='white'" onmouseover="this.style.background='red'" class='close-window'>&nbsp;✖&nbsp;</div>
-	</div>
-	<div class='winbody' style='position: absolute; background: black; height: 400px; width: 800px; overflow-x:hidden; color: white'>
-		BDOS [Version <script>document.write(build_version);</script>]<br>
-		(c) Михаил Литвинов (mi6e4ka). Все права защищены.<br>
-		<br>
-		/ ><br>
-	</div>
-</div>-->
 </div>
 <script>loadInfo('loading scripts');</script>
 <script>loadInfo('loading localforage');</script>

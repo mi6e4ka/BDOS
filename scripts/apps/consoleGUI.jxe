@@ -1,0 +1,3 @@
+appName = 'console'
+createApp(appName, 'Терминал')
+createWindow(appName, 'Терминал', appColor = 'black')

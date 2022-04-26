@@ -1,13 +1,24 @@
+/* TODO:
+Fix window
+*/
+
 openWindows = new Map();
 openM = false;
+
 function dragWindow(elmnt) {
   var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+  let timeoutArea = document.addEventListener('mouseover', isHover);
+	window.mouseOver = false;
+	function isHover(e) {
+		window.mouseOver = e.target.tagName === 'DIV';
+	  //console.log(e.target.tagName === 'DIV');
+	};
+
   console.log(document.getElementById(elmnt.id + "header"));
+  
   if (document.getElementById(elmnt.id + "header")) {
-    /* if present, the header is where you move the DIV from:*/
     document.getElementById(elmnt.id + "header").onmousedown = dragMouseDown;
   } else {
-    /* otherwise, move the DIV from anywhere inside the DIV:*/
     elmnt.onmousedown = dragMouseDown;
   }
 
@@ -24,16 +35,17 @@ function dragWindow(elmnt) {
 	document.onmousemove = elementDrag;
   }
 
-  function elementDrag(e) {
+  function elementDrag(e, mouseOver) {
     e = e || window.event;
-    // calculate the new cursor position:
     pos1 = pos3 - e.clientX;
     pos2 = pos4 - e.clientY;
     pos3 = e.clientX;
     pos4 = e.clientY;
-    // set the element's new position:
-    elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
-    elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+    console.log(window.mouseOver)
+    if (window.mouseOver) {
+	    elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+	    elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+    }
   }
 
   function closeDragElement() {
