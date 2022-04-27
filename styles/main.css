@@ -11,7 +11,7 @@
 }
 html {
 	user-select: none;
-	overflow: hidden;
+	/*overflow: hidden;*/
 	background-color: gray;
 }
 #osContainer {
@@ -26,4 +26,7 @@ html {
 	top: 0; left: 0; bottom: 0; right: 0;
 	overflow:hidden;
 	border-radius: 15px;
+}
+@media (min-width: 600px) and (max-width: 800px) {
+/* CSS-стили */;
 }

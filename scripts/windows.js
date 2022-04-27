@@ -45,6 +45,8 @@ function dragWindow(elmnt) {
     if (window.mouseOver) {
 	    elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
 	    elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+    } else {
+    	closeDragElement();
     }
   }
 

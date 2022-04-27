@@ -15,7 +15,7 @@
 }
 #bar {
 	background-color: #a6a3c44f;
-	z-index: 10;
+	z-index: 1;
 	position: absolute;
 	width: 1895px;
 	height: 45px;
