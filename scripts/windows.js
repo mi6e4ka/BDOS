@@ -14,7 +14,7 @@ function dragWindow(elmnt) {
 	  //console.log(e.target.tagName === 'DIV');
 	};
 
-  console.log(document.getElementById(elmnt.id + "header"));
+  //console.log(document.getElementById(elmnt.id + "header"));
   
   if (document.getElementById(elmnt.id + "header")) {
     document.getElementById(elmnt.id + "header").onmousedown = dragMouseDown;
@@ -41,7 +41,7 @@ function dragWindow(elmnt) {
     pos2 = pos4 - e.clientY;
     pos3 = e.clientX;
     pos4 = e.clientY;
-    console.log(window.mouseOver)
+    //console.log(window.mouseOver)
     if (window.mouseOver) {
 	    elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
 	    elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";

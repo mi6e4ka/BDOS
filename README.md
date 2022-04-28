@@ -1,4 +1,4 @@
-# BDOS v27042022
+# BDOS v28042022
 Browser Diskless Operation System
 - This is VERY unstable version, please use beta or stable branch
 - Test: http://bdos.tk (only beta)

@@ -1,3 +1,2 @@
-appName = 'console'
-createApp(appName, 'Терминал')
-createWindow(appName, 'Терминал', appColor = 'black')
+createApp('console', 'Терминал')
+createWindow('console', 'Терминал', undefined, 'black')

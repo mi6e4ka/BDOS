@@ -32,10 +32,10 @@ insertWindow('fileLoader','<input type="file" onchange="loadFile(this)">');
 
 /*
 Full add in new BETA
+*/
 
 createApp('console', 'Терминал')
-createWindow('console', 'Терминал', appColor = 'black')
-*/
+createWindow('console', 'Терминал', undefined, 'black')
 
 function createFileSystem(){
 	localforage.getItem('apps', function (err, value) {

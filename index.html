@@ -1,4 +1,5 @@
 <html id='html'>
+<meta name='google' content='notranslate' />
 <link rel='stylesheet' href='styles/blockscreen.css'>
 <link rel='stylesheet' href='styles/windows.css'>
 <link rel='stylesheet' href='styles/mainscreen.css'>
@@ -10,6 +11,9 @@
 <script>document.title += ' '+build_version;</script>
 <div id='osContainer' oncontextmenu="return false">
 <div id='loader' style='z-index: 200; background-color: black; width: 1920px; height: 1080px; color: white'>
+</div>
+<div id='cursor'>
+	<img src="assets/pointer.png">
 </div>
 <script src='scripts/load.js'></script>
 	<script>loadInfo('loading bar');</script>
@@ -62,6 +66,8 @@
 <script src='scripts/explorer.js'></script>
 <script>loadInfo('loading jxe');</script>
 <script src='scripts/jxe.js'></script>
+<script>loadInfo('loading cursor');</script>
+<script src='scripts/cursor.js'></script>
 <script>loadInfo('loading windows');</script>
 <script src='scripts/windows.js'></script>
 <script>loadInfo('loading clock');</script>

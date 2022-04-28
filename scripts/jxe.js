@@ -1,13 +1,13 @@
 function createWindow(appName, title, iconUrl='assets/icons/console.png', appColor='white'){
 	document.getElementById('windows').innerHTML+=`
-<div id='`+appName+`' class='window' style=''>
-	<div id='`+appName+`header' class='header'>
-		<div class='window-img' style='background-image: url(`+iconUrl+`)'></div>
-		&nbsp;&nbsp;&nbsp;`+title+`&nbsp;
-		<div onmousedown="closeWindow('`+appName+`')" onmouseout="this.style.background='white'" onmouseover="this.style.background='red'" class='close-window'>&nbsp;✖&nbsp;</div>
-		<div onmousedown="minimizWindow('`+appName+`')" onmouseout="this.style.background='white'" onmouseover="this.style.background='#cacaca'" class='minimiz-window'>&nbsp;-&nbsp;</div>
+<div id='${appName}' class='window' style=''>
+	<div id='${appName}header' class='header'>
+		<div class='window-img' style='background-image: url(${iconUrl})'></div>
+		&nbsp;&nbsp;&nbsp;${title}&nbsp;
+		<div onmousedown="closeWindow('${appName}')" onmouseout="this.style.background='white'" onmouseover="this.style.background='red'" class='close-window'>&nbsp;✖&nbsp;</div>
+		<div onmousedown="minimizWindow('${appName}')" onmouseout="this.style.background='white'" onmouseover="this.style.background='#cacaca'" class='minimiz-window'>&nbsp;_&nbsp;</div>
 	</div>
-	<div class='winbody' id='`+appName+`body' style='position: absolute; background: `+appColor+`'>
+	<div class='winbody' id='${appName}body' style='position: absolute; background: ${appColor}'>
 	</div>
 </div>	
 `;
@@ -36,7 +36,7 @@ function insertWindow(appName, html){
 }
 function createButton(appName, id, text='Кнопка', f='push(id)', x=0, y=0){
 	insertWindow(appName,`<button id=${id+appName} style="position: absolute; top: ${y}; left: ${x}" onclick='${f}'>${text}</button>`);
-	console.log(`<button id=${id+appName} style="position: absolute; top: ${y}; left: ${x}" onclick='${f}'>${text}</button>`);
+	//console.log(`<button id=${id+appName} style="position: absolute; top: ${y}; left: ${x}" onclick='${f}'>${text}</button>`);
 }
 function createLable(appName, id, text='Тут надпись', x=0, y=0){
 	insertWindow(appName,`<span id=${id+appName} style="position: absolute; top: ${y}; left: ${x}">${text}</span>`);
