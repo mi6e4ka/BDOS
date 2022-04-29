@@ -4,8 +4,8 @@ function createWindow(appName, title, iconUrl='assets/icons/console.png', appCol
 	<div id='${appName}header' class='header'>
 		<div class='window-img' style='background-image: url(${iconUrl})'></div>
 		&nbsp;&nbsp;&nbsp;${title}&nbsp;
-		<div onmousedown="closeWindow('${appName}')" onmouseout="this.style.background='white'" onmouseover="this.style.background='red'" class='close-window'>&nbsp;✖&nbsp;</div>
-		<div onmousedown="minimizWindow('${appName}')" onmouseout="this.style.background='white'" onmouseover="this.style.background='#cacaca'" class='minimiz-window'>&nbsp;_&nbsp;</div>
+		<div onclick="closeWindow('${appName}')" onmouseout="this.style.background='white'" onmouseover="this.style.background='red'" class='close-window'>&nbsp;✖&nbsp;</div>
+		<div onclick="minimizWindow('${appName}')" onmouseout="this.style.background='white'" onmouseover="this.style.background='#cacaca'" class='minimiz-window'>&nbsp;_&nbsp;</div>
 	</div>
 	<div class='winbody' id='${appName}body' style='position: absolute; background: ${appColor}'>
 	</div>
