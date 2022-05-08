@@ -30,10 +30,6 @@ createApp('fileLoader', 'Загрузчик файлов', 'assets/icons/load-fi
 createWindow('fileLoader', 'Выбирите файл для загрузки', 'assets/icons/load-file.png');
 insertWindow('fileLoader','<input type="file" onchange="loadFile(this)">');
 
-/*
-Full add in new BETA
-*/
-
 createApp('console', 'Терминал')
 createWindow('console', 'Терминал', undefined, 'black')
 

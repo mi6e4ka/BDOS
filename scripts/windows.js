@@ -1,7 +1,3 @@
-/* TODO:
-Fix window
-*/
-
 openWindows = new Map();
 openM = false;
 
@@ -11,11 +7,7 @@ function dragWindow(elmnt) {
 	window.mouseOver = false;
 	function isHover(e) {
 		window.mouseOver = e.target.tagName === 'DIV';
-	  //console.log(e.target.tagName === 'DIV');
 	};
-
-  //console.log(document.getElementById(elmnt.id + "header"));
-  
   if (document.getElementById(elmnt.id + "header")) {
     document.getElementById(elmnt.id + "header").onmousedown = dragMouseDown;
   } else {
@@ -27,7 +19,6 @@ function dragWindow(elmnt) {
 	if (e.which == 3){
 		return
 	}
-    // get the mouse cursor position at startup:
     pos3 = e.clientX;
     pos4 = e.clientY;
     document.onmouseup = closeDragElement;
@@ -41,7 +32,6 @@ function dragWindow(elmnt) {
     pos2 = pos4 - e.clientY;
     pos3 = e.clientX;
     pos4 = e.clientY;
-    //console.log(window.mouseOver)
     if (window.mouseOver) {
 	    elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
 	    elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
@@ -51,7 +41,6 @@ function dragWindow(elmnt) {
   }
 
   function closeDragElement() {
-    /* stop moving when mouse button is released:*/
     document.onmouseup = null;
     document.onmousemove = null;
   }
